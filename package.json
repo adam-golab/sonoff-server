@@ -1,0 +1,30 @@
+{
+  "name": "sonoff-server",
+  "version": "0.0.1",
+  "description": "Private Sonoff server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-golab/sonoff-server.git"
+  },
+  "keywords": [
+    "sonoff"
+  ],
+  "author": "Adam Golab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adam-golab/sonoff-server/issues"
+  },
+  "homepage": "https://github.com/adam-golab/sonoff-server#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-brainhub": "^1.7.0",
+    "nodemon": "^1.15.1"
+  }
+}
