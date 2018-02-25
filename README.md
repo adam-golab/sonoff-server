@@ -5,7 +5,13 @@ The idea was to have a private, locally hosted server to manage all of your own 
 
 # Installation
 
-1. Before running the server you have to provide certificate for HTTPS. It doesn't have to be a valid certificate, you can create your own self-signed and it would be good enough for Sonoff devices to connect.
+1. Before running the server you have to provide certificate for HTTPS. It doesn't have to be a valid certificate, you can create your own self-signed and it would be good enough for Sonoff devices to connect. You can do it via following commands
+
+```
+openssl req -x509 -newkey rsa:2048 -keyout certs/keytmp.pem -out certs/cert.pem -days 365
+openssl rsa -in certs/keytmp.pem -out certs/key.pem
+```
+
 2. Install all dependencies `npm i`
 
 # Setup a new device

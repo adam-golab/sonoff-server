@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# certs
+certs/cert.pem
+certs/key.pem
+certs/keytmp.pem
