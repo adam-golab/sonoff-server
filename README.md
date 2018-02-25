@@ -33,7 +33,7 @@ npm run start
 * /devices => list off all devices that are currently known to the server.
 * /devices/:deviceId => shows the status of the device
 * /devices/:deviceId/on => turns the device "on"
-* /devices/:deviceId/off => turns the device "on"
+* /devices/:deviceId/off => turns the device "off"
 
 # Thanks
 
