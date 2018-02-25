@@ -1,6 +1,8 @@
 const https = require('https');
+const ws = require('nodejs-websocket');
 
 const app = require('./app');
+const wsApp = require('./wsApp');
 const config = require('./config');
 const logger = require('./services/logger');
 
@@ -12,7 +14,13 @@ config
       requestCert: false,
       rejectUnauthorized: false,
     }, app).listen(config.PORT);
-    logger.info(`Application started on port: ${listen.address().port}`);
+    ws.createServer({
+      secure: true,
+      key: config.KEY,
+      cert: config.CERT,
+    }, wsApp).listen(config.WEBSOCKET_PORT);
+
+    logger.info(`Application started on ports: http - ${listen.address().port}, ws - ${config.WEBSOCKET_PORT}`);
 
     process.on('SIGTERM', () => {
       listen.close();
