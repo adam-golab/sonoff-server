@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^4.18.1",
-    "eslint-config-brainhub": "^1.7.0",
+    "eslint-config-brainhub": "^1.7.1",
     "nodemon": "^1.15.1"
   }
 }
