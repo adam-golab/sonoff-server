@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/adam-golab/sonoff-server#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "nodejs-websocket": "^1.7.1"
   },
   "devDependencies": {
     "eslint": "^4.18.1",
