@@ -2,7 +2,7 @@ const uuid = require('uuid/v4');
 
 const logger = require('./services/logger');
 const store = require('./store');
-const { DISCONNECT } = require('./store/actionTypes');
+const { disconnect } = require('./store/actions');
 
 module.exports = connection => {
   const id = uuid();
@@ -14,8 +14,7 @@ module.exports = connection => {
   });
 
   connection.on('close', () => {
-    const action = { type: DISCONNECT, id };
-    store.dispatch(action);
+    store.dispatch(disconnect(id));
   });
 
   connection.on('error', logger.error);
