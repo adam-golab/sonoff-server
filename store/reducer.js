@@ -8,20 +8,20 @@ module.exports = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER:
       return {
+        ...state,
         [action.id]: {
           deviceInfo: action.payload,
           connection: action.connection,
           params: {},
         },
-        ...state,
       };
     case UPDATE:
       return {
-        [action.id]: {
-          params: action.payload.params,
-          ...state[action.id],
-        },
         ...state,
+        [action.id]: {
+          ...state[action.id],
+          params: action.payload.params,
+        },
       };
     default:
       return state;
