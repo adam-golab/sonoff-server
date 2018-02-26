@@ -7,19 +7,22 @@ const {
 module.exports = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER:
-      return Object.assign({
+      return {
         [action.id]: {
           deviceInfo: action.payload,
           connection: action.connection,
           params: {},
         },
-      }, state);
+        ...state,
+      };
     case UPDATE:
-      return Object.assign({
-        [action.id]: Object.assign({
+      return {
+        [action.id]: {
           params: action.payload.params,
-        }, state[action.id]),
-      }, state);
+          ...state[action.id],
+        },
+        ...state,
+      };
     default:
       return state;
   }

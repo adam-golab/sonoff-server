@@ -12,7 +12,8 @@ const ack = ({ deviceid }) => ({
 
 module.exports = {
   [REGISTER]: ({ connection, payload }) => send(connection, ack(payload)),
-  [DATE]: ({ connection, payload }) => send(connection, Object.assign({
+  [DATE]: ({ connection, payload }) => send(connection, {
     date: new Date().toISOString(),
-  }, ack(payload))),
+    ...ack(payload),
+  }),
 };
