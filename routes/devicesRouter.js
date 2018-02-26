@@ -2,6 +2,7 @@ const express = require('express');
 const httpStatus = require('http-status-codes');
 
 const store = require('../store');
+const { turnOn, turnOff } = require('../store/actions');
 
 const router = express.Router();
 
@@ -35,11 +36,29 @@ router.get('/:deviceId', (req, res) => {
 });
 
 router.get('/:deviceId/on', (req, res) => {
-  res.send(`DEVICE WITH ID: ${req.params.deviceId} TURNED ON`);
+  const id = req.params.deviceId;
+
+  const state = store.getState();
+
+  if (!state[id]) {
+    return res.status(httpStatus.NOT_FOUND).send(httpStatus.getStatusText(httpStatus.NOT_FOUND));
+  }
+
+  store.dispatch(turnOn(id));
+  res.send(`DEVICE WITH ID: ${id} TURNED ON`);
 });
 
 router.get('/:deviceId/off', (req, res) => {
-  res.send(`DEVICE WITH ID: ${req.params.deviceId} TURNED OFF`);
+  const id = req.params.deviceId;
+
+  const state = store.getState();
+
+  if (!state[id]) {
+    return res.status(httpStatus.NOT_FOUND).send(httpStatus.getStatusText(httpStatus.NOT_FOUND));
+  }
+
+  store.dispatch(turnOff(id));
+  res.send(`DEVICE WITH ID: ${id} TURNED OFF`);
 });
 
 module.exports = router;

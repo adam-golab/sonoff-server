@@ -1,3 +1,4 @@
+// const logger = require('../services/logger');
 const initialState = require('./initialState');
 const {
   REGISTER,
@@ -5,6 +6,7 @@ const {
 } = require('./actionTypes');
 
 module.exports = (state = initialState, action) => {
+  // logger.log(action.type, action.id, action.payload);
   switch (action.type) {
     case REGISTER:
       return {

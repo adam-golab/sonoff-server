@@ -9,8 +9,10 @@ module.exports = connection => {
 
   connection.on('text', text => {
     const payload = JSON.parse(text);
-    const action = { id, type: payload.action, payload, connection };
-    store.dispatch(action);
+    if (payload.action) {
+      const action = { id, type: payload.action, payload, connection };
+      store.dispatch(action);
+    }
   });
 
   connection.on('close', () => {
