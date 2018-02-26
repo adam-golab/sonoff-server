@@ -1,7 +1,7 @@
 function sideEffectsMiddleware(sideEffects) {
-  return () => next => action => {
+  return ({ getState, dispatch }) => next => action => {
     if (typeof sideEffects[action.type] === 'function') {
-      sideEffects[action.type](action);
+      sideEffects[action.type]({ getState, dispatch, action });
     }
     next(action);
   };
