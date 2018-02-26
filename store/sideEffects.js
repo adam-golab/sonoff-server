@@ -4,16 +4,15 @@ const {
   DATE,
 } = require('./actionTypes');
 
+const ack = ({ deviceid }) => ({
+  error: 0,
+  deviceid,
+  apikey: '123456789-1234-1234-1234-123456789123',
+});
+
 module.exports = {
-  [REGISTER]: ({ connection, payload }) => send(connection, {
-    error: 0,
-    deviceid: payload.deviceid,
-    apikey: '123456789-1234-1234-1234-123456789123',
-  }),
-  [DATE]: ({ connection, payload }) => send(connection, {
-    error: 0,
+  [REGISTER]: ({ connection, payload }) => send(connection, ack(payload)),
+  [DATE]: ({ connection, payload }) => send(connection, Object.assign({
     date: new Date().toISOString(),
-    deviceid: payload.deviceid,
-    apikey: '123456789-1234-1234-1234-123456789123',
-  }),
+  }, ack(payload))),
 };
