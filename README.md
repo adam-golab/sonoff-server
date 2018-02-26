@@ -1,5 +1,4 @@
 # Private Sonoff server
-**WORK IN PROGRESS**
 
 The idea was to have a private, locally hosted server to manage all of your own Sonoff devices.
 
