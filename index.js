@@ -29,6 +29,10 @@ config
     process.on('SIGINT', () => {
       listen.close();
     });
+
+    listen.on('close', () => {
+      process.exit();
+    });
   })
   .catch(error => {
     logger.error(error);
