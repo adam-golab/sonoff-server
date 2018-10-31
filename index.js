@@ -20,7 +20,7 @@ config
       cert: config.CERT,
     }, wsApp).listen(config.WEBSOCKET_PORT);
 
-    logger.info(`Application started on ports: http - ${listen.address().port}, ws - ${config.WEBSOCKET_PORT}`);
+    logger.info(`Application started on ports: http - ${config.PORT}, ws - ${config.WEBSOCKET_PORT}`);
 
     process.on('SIGTERM', () => {
       listen.close();
