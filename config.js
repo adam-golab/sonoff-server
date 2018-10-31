@@ -8,7 +8,7 @@ module.exports = Promise.all([
 ])
   .then(([cert, key]) => ({
     PORT: process.env.PORT || 8080,
-    WEBSOCKET_PORT: process.env.WEBSOCEKT_PORT || 8090,
+    WEBSOCKET_PORT: process.env.WEBSOCKET_PORT || 8090,
     IP: '192.168.0.39',
     KEY: key,
     CERT: cert,
